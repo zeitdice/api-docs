@@ -539,7 +539,140 @@ curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:50.027Z"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-29T16:53:07.480Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='devices-uuid-heartbeats-index'>devices/:UUID/heartbeats (index)</h1><h1 id='devices-uuid-heartbeats-id-show'>devices/:UUID/heartbeats/:ID (show)</h1><h1 id='devices-uuid-stills-index-rebuild-with-json-payload-as-query'>devices/:UUID/stills (index, rebuild with json payload as query)</h1><h1 id='devices-uuid-stills-id-show'>devices/:UUID/stills/:ID (show)</h1><h1 id='devices-uuid-stills-latest'>devices/:UUID/stills (latest)</h1><h1 id='errors'>Errors</h1>
+</span></code></pre></div><h1 id='devices-uuid-heartbeats-index'>devices/:UUID/heartbeats (index)</h1>
+<p>This GET endpoint will return a JSON array with each heartbeat of the device you specify with the UUID in the URL.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"next_wakeup"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="mi">24076</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="mi">22835</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="mf">4.06</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vsys"</span><span class="p">:</span><span class="mf">4.05</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"temperature"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01T09:55:35.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21T19:21:28.708Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:04.500Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:10.820Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payload"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"interval"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="s2">"85"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="s2">"24076.62109375"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="s2">"22835.265625"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="s2">"4.06V"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"vsys"</span><span class="p">:</span><span class="s2">"4.05V"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"temperature"</span><span class="p">:</span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01 09:55:35"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21 19:21:28.708734"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"0:00:04.500000"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"0:00:10.820000"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"next_wakeup"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="mi">86</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="mi">24076</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="mi">22835</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="mf">4.06</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vsys"</span><span class="p">:</span><span class="mf">4.05</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"RUN"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"temperature"</span><span class="p">:</span><span class="mi">36</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01T10:07:40.000Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21T19:21:28.529Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:04.270Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:12.900Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"payload"</span><span class="p">:{</span><span class="w">
+         </span><span class="nl">"interval"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="s2">"86"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="s2">"24076.62109375"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="s2">"22835.26171875"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="s2">"4.06V"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"vsys"</span><span class="p">:</span><span class="s2">"4.05V"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"RUN"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"temperature"</span><span class="p">:</span><span class="s2">"36"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01 10:07:40"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21 19:21:28.529990"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"0:00:04.270000"</span><span class="p">,</span><span class="w">
+         </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"0:00:12.900000"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:33:56.095Z"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:33:56.095Z"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='devices-uuid-heartbeats-id-show'>devices/:UUID/heartbeats/:ID (show)</h1>
+<p>This GET endpoint will return a JSON with the heartbeat of the ID defined in the URL of the device you specify with the UUID in the URL.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID/heartbeats/:ID"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"interval"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"next_wakeup"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="mi">85</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="mi">24076</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="mi">22835</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="mf">4.06</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"vsys"</span><span class="p">:</span><span class="mf">4.05</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"temperature"</span><span class="p">:</span><span class="mi">33</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01T09:55:35.000Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21T19:21:28.708Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:04.500Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:10.820Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"payload"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="s2">"85"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="s2">"24076.62109375"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="s2">"22835.265625"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="s2">"4.06V"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vsys"</span><span class="p">:</span><span class="s2">"4.05V"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"temperature"</span><span class="p">:</span><span class="s2">"33"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01 09:55:35"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21 19:21:28.708734"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"0:00:04.500000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"0:00:10.820000"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='devices-uuid-stills-index-rebuild-with-json-payload-as-query'>devices/:UUID/stills (index, rebuild with json payload as query)</h1>
+<p>WIP</p>
+<h1 id='devices-uuid-stills-id-show'>devices/:UUID/stills/:ID (show)</h1><h1 id='devices-uuid-stills-latest'>devices/:UUID/stills (latest)</h1><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
 </aside>
