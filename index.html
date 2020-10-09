@@ -288,7 +288,7 @@
     </script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;,&quot;javascript&quot;,&quot;json&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;json&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -299,7 +299,6 @@
       <img src="images/logo-1e815a84.png" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
-              <a href="#" data-language-name="javascript">javascript</a>
               <a href="#" data-language-name="json">json</a>
         </div>
         <div class="search">
@@ -312,6 +311,12 @@
           </li>
           <li>
             <a href="#api-v4-devices" class="toc-h1 toc-link" data-title="/api/v4/devices">/api/v4/devices</a>
+          </li>
+          <li>
+            <a href="#api-v4-devices-uuid-heartbeats-latest" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/heartbeats/latest">/api/v4/devices/:UUID/heartbeats/latest</a>
+          </li>
+          <li>
+            <a href="#api-v4-devices-uuid-settings" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/settings">/api/v4/devices/:UUID/settings</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -332,10 +337,8 @@
 <h1 id='api-v4-devices'>/api/v4/devices</h1>
 <p>This GET endpoint will return a JSON with the information of the Devices of the current logged user, if the current user is admin will display all the devices in the database.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"/api/v4/devices"</span>
-  <span class="nt">-H</span> <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre></div><div class="highlight"><pre class="highlight javascript tab-javascript"><code>  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span> <span class="dl">"</span><span class="s2">/api/v4/devices</span><span class="dl">"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+curl <span class="s2">"http://localhost:3000/api/v4/devices"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: X"</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
    </span><span class="p">{</span><span class="w">
       </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
@@ -428,6 +431,80 @@ curl <span class="s2">"/api/v4/devices"</span>
       </span><span class="p">}</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='api-v4-devices-uuid-heartbeats-latest'>/api/v4/devices/:UUID/heartbeats/latest</h1>
+<p>This GET endpoint will return a JSON with the information of the last heartbeat of the device you specify with the UUID in the URL.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
+<span class="c"># Replace the :UUID with the UUID of the device that you want to get the last heartbeat from</span>
+curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID/heartbeats/latest"</span>
+  <span class="nt">-H</span> <span class="s2">"Authorization: X"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"interval"</span><span class="p">:</span><span class="mi">300</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"next_wakeup"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="mi">91</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="mi">24076</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="mi">22828</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="mf">4.08</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"vsys"</span><span class="p">:</span><span class="mf">4.07</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"temperature"</span><span class="p">:</span><span class="mi">28</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01T10:49:36.000Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21T19:21:28.519Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:04.260Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"2000-01-01T00:00:12.770Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"payload"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="s2">"300"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"battery_level"</span><span class="p">:</span><span class="s2">"91"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdSizeMB"</span><span class="p">:</span><span class="s2">"24076.62109375"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"sdFreeMB"</span><span class="p">:</span><span class="s2">"22828.61328125"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"operator_version"</span><span class="p">:</span><span class="s2">"operator-20200908"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_fw_version"</span><span class="p">:</span><span class="s2">"V1.0.0"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"timezone"</span><span class="p">:</span><span class="s2">"America/Toronto"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"powersource"</span><span class="p">:</span><span class="s2">"Battery"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vbatt"</span><span class="p">:</span><span class="s2">"4.08V"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"vsys"</span><span class="p">:</span><span class="s2">"4.07V"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"mode"</span><span class="p">:</span><span class="s2">"CONFIG"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"temperature"</span><span class="p">:</span><span class="s2">"28"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"shield_datetime"</span><span class="p">:</span><span class="s2">"2020-01-01 10:49:36"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"rpi_datetime"</span><span class="p">:</span><span class="s2">"2020-09-21 19:21:28.519000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_start"</span><span class="p">:</span><span class="s2">"0:00:04.260000"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"uptime_at_upload"</span><span class="p">:</span><span class="s2">"0:00:12.770000"</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-22T00:15:51.625Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-22T00:15:51.625Z"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='api-v4-devices-uuid-settings'>/api/v4/devices/:UUID/settings</h1>
+<p>This POST endpoint will create a device settings entry in the database with the payload that you specify in the POST request, this will return a JSON with the information of the device settings just created of the device you specify with the UUID in the URL.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Replace the :UUID with the UUID of the device that you want to post settings to</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "true", "payload":{"interval": 3600}}'</span> http://localhost:3000/api/v4/devices/:UUID/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "true", "payload":{"upload_request": "/storage/op.log"}}'</span> http://localhost:3000/api/v4/devices/:UUID/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "false", "payload":{"new_settings": {"resolution":"4056x3040","rotation":"0","full_res_threshold":"0","image_effect":"denoise","sharpness":"50"}}}'</span> http://localhost:3000/api/v4/devices/8de4c3f2-ce1e-21c6-ba33-1a2cbd9cfc19/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "true", "payload":{"fw_url": "https://zd-firmware-releases.s3.amazonaws.com/zd-infinity/master-20200724-113545.tar.gz", "fw_checksum": "c2ba27a1d26695f52d6f7cfd1ee1a894c24c18bc93455ae2393fdf665fbc660a"}}'</span> http://localhost:3000/api/v4/devices/:UUID/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "true", "payload":{"fw_url": "https://zd-firmware-releases.s3.amazonaws.com/zd-infinity/master-20200725-181519.tar.gz", "fw_checksum": "75558c34bbce18d17be59bc84032692198c53f0bb6c2c80905f3a8c653d409e7"}}'</span> http://localhost:3000/api/v4/devices/:UUID/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+
+curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class="s1">'{"operator": "true", "payload":{"upload_request": "/storage/op.log"}}'</span> http://localhost:3000/api/v4/devices/:UUID/settings <span class="nt">--header</span> <span class="s2">"Content-Type:application/json"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="nl">"id"</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"source_id"</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"installed"</span><span class="p">:</span><span class="kc">false</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"payload"</span><span class="p">:{</span><span class="w">
+      </span><span class="nl">"interval"</span><span class="p">:</span><span class="mi">3600</span><span class="w">
+   </span><span class="p">},</span><span class="w">
+   </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-10-09T14:20:09.003Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-10-09T14:20:09.003Z"</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"operator"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
+   </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre></div><h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
@@ -491,7 +568,6 @@ This error section is stored in a separate file in <code>includes/_errors.md</co
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
-                <a href="#" data-language-name="javascript">javascript</a>
                 <a href="#" data-language-name="json">json</a>
           </div>
       </div>
