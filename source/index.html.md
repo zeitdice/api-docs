@@ -219,6 +219,28 @@ curl -X POST --data '{"operator": "true", "payload":{"upload_request": "/storage
 ```
 
 # devices/:UUID (show)
+This GET endpoint will return a JSON with the information of the last the device you specify with the UUID in the URL.
+
+```shell
+# Replace the :UUID with the UUID of the device that you want to get the last heartbeat from
+curl "http://localhost:3000/api/v4/devices/:UUID"
+  -H "Authorization: X"
+```
+
+```json
+{
+   "id":1,
+   "uuid":"TEST-UUID",
+   "iccid":null,
+   "hw_model":null,
+   "hw_version":null,
+   "comment":null,
+   "user_id":2,
+   "created_at":"2020-09-21T23:21:50.027Z",
+   "updated_at":"2020-09-29T16:53:07.480Z"
+}
+```
+
 # devices/:UUID/heartbeats (index)
 # devices/:UUID/heartbeats/:ID (show)
 # devices/:UUID/stills (index, rebuild with json payload as query)
