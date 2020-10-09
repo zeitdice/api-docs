@@ -217,3 +217,10 @@ curl -X POST --data '{"operator": "true", "payload":{"upload_request": "/storage
    "device_id":1
 }
 ```
+
+# devices/:UUID (show)
+# devices/:UUID/heartbeats (index)
+# devices/:UUID/heartbeats/:ID (show)
+# devices/:UUID/stills (index, rebuild with json payload as query)
+# devices/:UUID/stills/:ID (show)
+# devices/:UUID/stills (latest)
