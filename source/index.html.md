@@ -242,7 +242,149 @@ curl "http://localhost:3000/api/v4/devices/:UUID"
 ```
 
 # devices/:UUID/heartbeats (index)
+This GET endpoint will return a JSON array with each heartbeat of the device you specify with the UUID in the URL.
+
+```shell
+   curl "http://localhost:3000/api/v4/devices/:UUID"
+```
+
+```json
+[
+   {
+      "id":1,
+      "device_id":1,
+      "interval":300,
+      "next_wakeup":null,
+      "battery_level":85,
+      "sdSizeMB":24076,
+      "sdFreeMB":22835,
+      "operator_version":"operator-20200908",
+      "shield_fw_version":"V1.0.0",
+      "timezone":"America/Toronto",
+      "powersource":"Battery",
+      "vbatt":4.06,
+      "vsys":4.05,
+      "mode":"CONFIG",
+      "temperature":33,
+      "shield_datetime":"2020-01-01T09:55:35.000Z",
+      "rpi_datetime":"2020-09-21T19:21:28.708Z",
+      "uptime_at_start":"2000-01-01T00:00:04.500Z",
+      "uptime_at_upload":"2000-01-01T00:00:10.820Z",
+      "payload":{
+         "interval":"300",
+         "battery_level":"85",
+         "sdSizeMB":"24076.62109375",
+         "sdFreeMB":"22835.265625",
+         "operator_version":"operator-20200908",
+         "shield_fw_version":"V1.0.0",
+         "timezone":"America/Toronto",
+         "powersource":"Battery",
+         "vbatt":"4.06V",
+         "vsys":"4.05V",
+         "mode":"CONFIG",
+         "temperature":"33",
+         "shield_datetime":"2020-01-01 09:55:35",
+         "rpi_datetime":"2020-09-21 19:21:28.708734",
+         "uptime_at_start":"0:00:04.500000",
+         "uptime_at_upload":"0:00:10.820000"
+      },
+      "created_at":"2020-09-21T23:21:52.014Z",
+      "updated_at":"2020-09-21T23:21:52.014Z"
+   },
+   {
+      "id":2,
+      "device_id":1,
+      "interval":300,
+      "next_wakeup":null,
+      "battery_level":86,
+      "sdSizeMB":24076,
+      "sdFreeMB":22835,
+      "operator_version":"operator-20200908",
+      "shield_fw_version":"V1.0.0",
+      "timezone":"America/Toronto",
+      "powersource":"Battery",
+      "vbatt":4.06,
+      "vsys":4.05,
+      "mode":"RUN",
+      "temperature":36,
+      "shield_datetime":"2020-01-01T10:07:40.000Z",
+      "rpi_datetime":"2020-09-21T19:21:28.529Z",
+      "uptime_at_start":"2000-01-01T00:00:04.270Z",
+      "uptime_at_upload":"2000-01-01T00:00:12.900Z",
+      "payload":{
+         "interval":"300",
+         "battery_level":"86",
+         "sdSizeMB":"24076.62109375",
+         "sdFreeMB":"22835.26171875",
+         "operator_version":"operator-20200908",
+         "shield_fw_version":"V1.0.0",
+         "timezone":"America/Toronto",
+         "powersource":"Battery",
+         "vbatt":"4.06V",
+         "vsys":"4.05V",
+         "mode":"RUN",
+         "temperature":"36",
+         "shield_datetime":"2020-01-01 10:07:40",
+         "rpi_datetime":"2020-09-21 19:21:28.529990",
+         "uptime_at_start":"0:00:04.270000",
+         "uptime_at_upload":"0:00:12.900000"
+      },
+      "created_at":"2020-09-21T23:33:56.095Z",
+      "updated_at":"2020-09-21T23:33:56.095Z"
+   }
+]
+```
 # devices/:UUID/heartbeats/:ID (show)
+This GET endpoint will return a JSON with the heartbeat of the ID defined in the URL of the device you specify with the UUID in the URL.
+
+
+```shell
+   curl "http://localhost:3000/api/v4/devices/:UUID/heartbeats/:ID"
+```
+```json
+{
+   "id":1,
+   "device_id":1,
+   "interval":300,
+   "next_wakeup":null,
+   "battery_level":85,
+   "sdSizeMB":24076,
+   "sdFreeMB":22835,
+   "operator_version":"operator-20200908",
+   "shield_fw_version":"V1.0.0",
+   "timezone":"America/Toronto",
+   "powersource":"Battery",
+   "vbatt":4.06,
+   "vsys":4.05,
+   "mode":"CONFIG",
+   "temperature":33,
+   "shield_datetime":"2020-01-01T09:55:35.000Z",
+   "rpi_datetime":"2020-09-21T19:21:28.708Z",
+   "uptime_at_start":"2000-01-01T00:00:04.500Z",
+   "uptime_at_upload":"2000-01-01T00:00:10.820Z",
+   "payload":{
+      "interval":"300",
+      "battery_level":"85",
+      "sdSizeMB":"24076.62109375",
+      "sdFreeMB":"22835.265625",
+      "operator_version":"operator-20200908",
+      "shield_fw_version":"V1.0.0",
+      "timezone":"America/Toronto",
+      "powersource":"Battery",
+      "vbatt":"4.06V",
+      "vsys":"4.05V",
+      "mode":"CONFIG",
+      "temperature":"33",
+      "shield_datetime":"2020-01-01 09:55:35",
+      "rpi_datetime":"2020-09-21 19:21:28.708734",
+      "uptime_at_start":"0:00:04.500000",
+      "uptime_at_upload":"0:00:10.820000"
+   },
+   "created_at":"2020-09-21T23:21:52.014Z",
+   "updated_at":"2020-09-21T23:21:52.014Z"
+}
+```
 # devices/:UUID/stills (index, rebuild with json payload as query)
+WIP
 # devices/:UUID/stills/:ID (show)
 # devices/:UUID/stills (latest)
