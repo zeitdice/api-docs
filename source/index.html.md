@@ -3,7 +3,6 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - javascript
   - json
 
 toc_footers:
@@ -30,13 +29,8 @@ This GET endpoint will return a JSON with the information of the Devices of the 
 
 ```shell
 # With shell, you can just pass the correct header with each request
-curl "/api/v4/devices"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-  $.getJSON( "/api/v4/devices", function(data) {
-    console.log(data);
+curl "http://localhost:3000/api/v4/devices"
+  -H "Authorization: X"
 ```
 
 ```json
@@ -132,4 +126,94 @@ curl "/api/v4/devices"
       }
    }
 ]
+```
+
+# /api/v4/devices/:UUID/heartbeats/latest
+
+This GET endpoint will return a JSON with the information of the last heartbeat of the device you specify with the UUID in the URL.
+
+```shell
+# With shell, you can just pass the correct header with each request
+# Replace the :UUID with the UUID of the device that you want to get the last heartbeat from
+curl "http://localhost:3000/api/v4/devices/:UUID/heartbeats/latest"
+  -H "Authorization: X"
+```
+
+```json
+{
+   "id":9,
+   "device_id":1,
+   "interval":300,
+   "next_wakeup":null,
+   "battery_level":91,
+   "sdSizeMB":24076,
+   "sdFreeMB":22828,
+   "operator_version":"operator-20200908",
+   "shield_fw_version":"V1.0.0",
+   "timezone":"America/Toronto",
+   "powersource":"Battery",
+   "vbatt":4.08,
+   "vsys":4.07,
+   "mode":"CONFIG",
+   "temperature":28,
+   "shield_datetime":"2020-01-01T10:49:36.000Z",
+   "rpi_datetime":"2020-09-21T19:21:28.519Z",
+   "uptime_at_start":"2000-01-01T00:00:04.260Z",
+   "uptime_at_upload":"2000-01-01T00:00:12.770Z",
+   "payload":{
+      "interval":"300",
+      "battery_level":"91",
+      "sdSizeMB":"24076.62109375",
+      "sdFreeMB":"22828.61328125",
+      "operator_version":"operator-20200908",
+      "shield_fw_version":"V1.0.0",
+      "timezone":"America/Toronto",
+      "powersource":"Battery",
+      "vbatt":"4.08V",
+      "vsys":"4.07V",
+      "mode":"CONFIG",
+      "temperature":"28",
+      "shield_datetime":"2020-01-01 10:49:36",
+      "rpi_datetime":"2020-09-21 19:21:28.519000",
+      "uptime_at_start":"0:00:04.260000",
+      "uptime_at_upload":"0:00:12.770000"
+   },
+   "created_at":"2020-09-22T00:15:51.625Z",
+   "updated_at":"2020-09-22T00:15:51.625Z"
+}
+```
+
+# /api/v4/devices/:UUID/settings
+
+This POST endpoint will create a device settings entry in the database with the payload that you specify in the POST request, this will return a JSON with the information of the device settings just created of the device you specify with the UUID in the URL.
+
+```shell
+# Replace the :UUID with the UUID of the device that you want to post settings to
+
+curl -X POST --data '{"operator": "true", "payload":{"interval": 3600}}' http://localhost:3000/api/v4/devices/:UUID/settings --header "Content-Type:application/json"
+
+curl -X POST --data '{"operator": "true", "payload":{"upload_request": "/storage/op.log"}}' http://localhost:3000/api/v4/devices/:UUID/settings --header "Content-Type:application/json"
+
+curl -X POST --data '{"operator": "false", "payload":{"new_settings": {"resolution":"4056x3040","rotation":"0","full_res_threshold":"0","image_effect":"denoise","sharpness":"50"}}}' http://localhost:3000/api/v4/devices/8de4c3f2-ce1e-21c6-ba33-1a2cbd9cfc19/settings --header "Content-Type:application/json"
+
+curl -X POST --data '{"operator": "true", "payload":{"fw_url": "https://zd-firmware-releases.s3.amazonaws.com/zd-infinity/master-20200724-113545.tar.gz", "fw_checksum": "c2ba27a1d26695f52d6f7cfd1ee1a894c24c18bc93455ae2393fdf665fbc660a"}}' http://localhost:3000/api/v4/devices/:UUID/settings --header "Content-Type:application/json"
+
+curl -X POST --data '{"operator": "true", "payload":{"fw_url": "https://zd-firmware-releases.s3.amazonaws.com/zd-infinity/master-20200725-181519.tar.gz", "fw_checksum": "75558c34bbce18d17be59bc84032692198c53f0bb6c2c80905f3a8c653d409e7"}}' http://localhost:3000/api/v4/devices/:UUID/settings --header "Content-Type:application/json"
+
+curl -X POST --data '{"operator": "true", "payload":{"upload_request": "/storage/op.log"}}' http://localhost:3000/api/v4/devices/:UUID/settings --header "Content-Type:application/json"
+```
+
+```json
+{
+   "id":13,
+   "source_id":null,
+   "installed":false,
+   "payload":{
+      "interval":3600
+   },
+   "created_at":"2020-10-09T14:20:09.003Z",
+   "updated_at":"2020-10-09T14:20:09.003Z",
+   "operator":true,
+   "device_id":1
+}
 ```
