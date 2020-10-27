@@ -218,7 +218,7 @@ curl -X POST --data '{"operator": "true", "payload":{"upload_request": "/storage
 }
 ```
 
-# devices/:UUID (show)
+# /api/v4/devices/:UUID (show)
 This GET endpoint will return a JSON with the information of the last the device you specify with the UUID in the URL.
 
 ```shell
@@ -241,7 +241,7 @@ curl "http://localhost:3000/api/v4/devices/:UUID"
 }
 ```
 
-# devices/:UUID/heartbeats (index)
+# /api/v4/devices/:UUID/heartbeats (index)
 This GET endpoint will return a JSON array with each heartbeat of the device you specify with the UUID in the URL.
 
 ```shell
@@ -334,7 +334,7 @@ This GET endpoint will return a JSON array with each heartbeat of the device you
    }
 ]
 ```
-# devices/:UUID/heartbeats/:ID (show)
+# /api/v4/devices/:UUID/heartbeats/:ID (show)
 This GET endpoint will return a JSON with the heartbeat of the ID defined in the URL of the device you specify with the UUID in the URL.
 
 
@@ -384,7 +384,99 @@ This GET endpoint will return a JSON with the heartbeat of the ID defined in the
    "updated_at":"2020-09-21T23:21:52.014Z"
 }
 ```
-# devices/:UUID/stills (index, rebuild with json payload as query)
-WIP
-# devices/:UUID/stills/:ID (show)
-# devices/:UUID/stills (latest)
+# /api/v4/devices/:UUID/stills (index)
+This GET endpoint will return the stills of a given device in a range date.
+
+This endpoints need the following querystrings:
+
+QueryString | format
+----------- | -------
+date_range_start | YYYY-MM-DD
+date_range_end | YYYY-MM-DD
+time_range_start | hh:mm
+time_range_end | hh:mm
+
+```shell
+   curl -i -H "Accept: application/json" -H "Content-Type: application/json" -X GET "http://localhost:3000/api/v2/sources/aa0505f5-5050-5137-6a70-a9c21eaf3a0e/stills?date_range_start=2014-12-12&date_range_end=2019-12-12&time_range_start=12:00&time_range_end=14:00"
+```
+
+```json
+[
+    {
+        "id": 2550395,
+        "thumb_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/thumb/20201013120850.jpg",
+        "file_name": "20201013120850.jpg",
+        "image_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/original/20201013120850.jpg",
+        "captured_at_local_tz": "2020-10-13 12:08",
+        "bb_image_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/bb/20201013120850.jpg",
+        "ai_threshold": 50,
+        "ai_relevant_objects": "{'person': True, 'car': True, 'truck': True}",
+        "brightness": 46.69
+    },
+    {
+        "id": 2550432,
+        "thumb_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/thumb/20201013123850.jpg",
+        "file_name": "20201013123850.jpg",
+        "image_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/original/20201013123850.jpg",
+        "captured_at_local_tz": "2020-10-13 12:38",
+        "bb_image_url": "https://zeitings-live.s3.amazonaws.com/stills/1902/bb/20201013123850.jpg",
+        "ai_threshold": 50,
+        "ai_relevant_objects": "{'person': True, 'car': True, 'truck': True}",
+        "brightness": 47.22
+    }
+]
+```
+
+# /api/v4/devices/:UUID/stills/:ID (show)
+This GET endpoint will return the still object with the given ID of a given device.
+
+```shell
+   curl "http://localhost:3000/api/v4/devices/:UUID/stills/:ID"
+```
+
+```json
+{
+    "id": 2550394,
+    "created_at": "2020-10-13T16:08:58.497Z",
+    "updated_at": "2020-10-13T16:09:06.553Z",
+    "image_file_file_name": "20201013120848.jpg",
+    "image_file_content_type": null,
+    "image_file_file_size": 6647903,
+    "image_file_updated_at": null,
+    "captured_at": "2020-10-13T12:08:48.000Z",
+    "source_id": 1895,
+    "data": null,
+    "imagemagick": null,
+    "intel": null,
+    "yolo": null,
+    "scheduled_for_analytics": false,
+    "uploaded_ok": true,
+    "bb_image_uploaded": false,
+    "brightness": 43.81,
+    "processing_completed": true,
+    "diff_to_previous": null,
+    "height": 3040,
+    "width": 4056,
+    "deleted": false,
+    "file_deleted": false,
+    "image_url": "https://zeitings-live.s3.amazonaws.com/stills/1895/original/20201013120848.jpg",
+    "bb_image_url": "https://zeitings-live.s3.amazonaws.com/stills/1895/bb/20201013120848.jpg",
+    "thumb_url": "https://zeitings-live.s3.amazonaws.com/stills/1895/thumb/20201013120848.jpg",
+    "ai_threshold": 50,
+    "ai_relevant_objects": "{'person': True, 'car': True, 'truck': True}"
+}
+```
+
+
+# /api/v4/devices/:UUID/stills/latest
+
+This GET endpoint returns the latest still as an image.
+
+
+```shell
+   curl "http://localhost:3000/api/v4/devices/:UUID/stills/latest"
+```
+
+```json
+   No JSON returned in this endpoint, only an image
+```
