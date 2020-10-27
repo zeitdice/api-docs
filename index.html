@@ -319,22 +319,22 @@
             <a href="#api-v4-devices-uuid-settings" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/settings">/api/v4/devices/:UUID/settings</a>
           </li>
           <li>
-            <a href="#devices-uuid-show" class="toc-h1 toc-link" data-title="devices/:UUID (show)">devices/:UUID (show)</a>
+            <a href="#api-v4-devices-uuid-show" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID (show)">/api/v4/devices/:UUID (show)</a>
           </li>
           <li>
-            <a href="#devices-uuid-heartbeats-index" class="toc-h1 toc-link" data-title="devices/:UUID/heartbeats (index)">devices/:UUID/heartbeats (index)</a>
+            <a href="#api-v4-devices-uuid-heartbeats-index" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/heartbeats (index)">/api/v4/devices/:UUID/heartbeats (index)</a>
           </li>
           <li>
-            <a href="#devices-uuid-heartbeats-id-show" class="toc-h1 toc-link" data-title="devices/:UUID/heartbeats/:ID (show)">devices/:UUID/heartbeats/:ID (show)</a>
+            <a href="#api-v4-devices-uuid-heartbeats-id-show" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/heartbeats/:ID (show)">/api/v4/devices/:UUID/heartbeats/:ID (show)</a>
           </li>
           <li>
-            <a href="#devices-uuid-stills-index-rebuild-with-json-payload-as-query" class="toc-h1 toc-link" data-title="devices/:UUID/stills (index, rebuild with json payload as query)">devices/:UUID/stills (index, rebuild with json payload as query)</a>
+            <a href="#api-v4-devices-uuid-stills-index" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/stills (index)">/api/v4/devices/:UUID/stills (index)</a>
           </li>
           <li>
-            <a href="#devices-uuid-stills-id-show" class="toc-h1 toc-link" data-title="devices/:UUID/stills/:ID (show)">devices/:UUID/stills/:ID (show)</a>
+            <a href="#api-v4-devices-uuid-stills-id-show" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/stills/:ID (show)">/api/v4/devices/:UUID/stills/:ID (show)</a>
           </li>
           <li>
-            <a href="#devices-uuid-stills-latest" class="toc-h1 toc-link" data-title="devices/:UUID/stills (latest)">devices/:UUID/stills (latest)</a>
+            <a href="#api-v4-devices-uuid-stills-latest" class="toc-h1 toc-link" data-title="/api/v4/devices/:UUID/stills/latest">/api/v4/devices/:UUID/stills/latest</a>
           </li>
           <li>
             <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
@@ -523,7 +523,7 @@ curl <span class="nt">-X</span> POST <span class="nt">--data</span> <span class=
    </span><span class="nl">"operator"</span><span class="p">:</span><span class="kc">true</span><span class="p">,</span><span class="w">
    </span><span class="nl">"device_id"</span><span class="p">:</span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='devices-uuid-show'>devices/:UUID (show)</h1>
+</span></code></pre></div><h1 id='api-v4-devices-uuid-show'>/api/v4/devices/:UUID (show)</h1>
 <p>This GET endpoint will return a JSON with the information of the last the device you specify with the UUID in the URL.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code><span class="c"># Replace the :UUID with the UUID of the device that you want to get the last heartbeat from</span>
 curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
@@ -539,7 +539,7 @@ curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:50.027Z"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-29T16:53:07.480Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='devices-uuid-heartbeats-index'>devices/:UUID/heartbeats (index)</h1>
+</span></code></pre></div><h1 id='api-v4-devices-uuid-heartbeats-index'>/api/v4/devices/:UUID/heartbeats (index)</h1>
 <p>This GET endpoint will return a JSON array with each heartbeat of the device you specify with the UUID in the URL.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
@@ -626,7 +626,7 @@ curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
       </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:33:56.095Z"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-</span></code></pre></div><h1 id='devices-uuid-heartbeats-id-show'>devices/:UUID/heartbeats/:ID (show)</h1>
+</span></code></pre></div><h1 id='api-v4-devices-uuid-heartbeats-id-show'>/api/v4/devices/:UUID/heartbeats/:ID (show)</h1>
 <p>This GET endpoint will return a JSON with the heartbeat of the ID defined in the URL of the device you specify with the UUID in the URL.</p>
 <div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID/heartbeats/:ID"</span>
 </code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -670,14 +670,98 @@ curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID"</span>
    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="p">,</span><span class="w">
    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="s2">"2020-09-21T23:21:52.014Z"</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre></div><h1 id='devices-uuid-stills-index-rebuild-with-json-payload-as-query'>devices/:UUID/stills (index, rebuild with json payload as query)</h1>
-<p>WIP</p>
-<h1 id='devices-uuid-stills-id-show'>devices/:UUID/stills/:ID (show)</h1><h1 id='devices-uuid-stills-latest'>devices/:UUID/stills (latest)</h1><h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
+</span></code></pre></div><h1 id='api-v4-devices-uuid-stills-index'>/api/v4/devices/:UUID/stills (index)</h1>
+<p>This GET endpoint will return the stills of a given device in a range date.</p>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>This endpoints need the following querystrings:</p>
+
+<table><thead>
+<tr>
+<th>QueryString</th>
+<th>format</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date_range_start</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>date_range_end</td>
+<td>YYYY-MM-DD</td>
+</tr>
+<tr>
+<td>time_range_start</td>
+<td>hh:mm</td>
+</tr>
+<tr>
+<td>time_range_end</td>
+<td>hh:mm</td>
+</tr>
+</tbody></table>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="nt">-i</span> <span class="nt">-H</span> <span class="s2">"Accept: application/json"</span> <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="nt">-X</span> GET <span class="s2">"http://localhost:3000/api/v2/sources/aa0505f5-5050-5137-6a70-a9c21eaf3a0e/stills?date_range_start=2014-12-12&amp;date_range_end=2019-12-12&amp;time_range_start=12:00&amp;time_range_end=14:00"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2550395</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/thumb/20201013120850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20201013120850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/original/20201013120850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captured_at_local_tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13 12:08"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bb_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/bb/20201013120850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ai_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ai_relevant_objects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{'person': True, 'car': True, 'truck': True}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">46.69</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2550432</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/thumb/20201013123850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20201013123850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/original/20201013123850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"captured_at_local_tz"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13 12:38"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"bb_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1902/bb/20201013123850.jpg"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ai_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"ai_relevant_objects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{'person': True, 'car': True, 'truck': True}"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">47.22</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div><h1 id='api-v4-devices-uuid-stills-id-show'>/api/v4/devices/:UUID/stills/:ID (show)</h1>
+<p>This GET endpoint will return the still object with the given ID of a given device.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID/stills/:ID"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2550394</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T16:08:58.497Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"updated_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T16:09:06.553Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_file_file_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20201013120848.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_file_content_type"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_file_file_size"</span><span class="p">:</span><span class="w"> </span><span class="mi">6647903</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_file_updated_at"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"captured_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2020-10-13T12:08:48.000Z"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"source_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1895</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"imagemagick"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"intel"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"yolo"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"scheduled_for_analytics"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"uploaded_ok"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bb_image_uploaded"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"brightness"</span><span class="p">:</span><span class="w"> </span><span class="mf">43.81</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"processing_completed"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"diff_to_previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"height"</span><span class="p">:</span><span class="w"> </span><span class="mi">3040</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"width"</span><span class="p">:</span><span class="w"> </span><span class="mi">4056</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"file_deleted"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1895/original/20201013120848.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"bb_image_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1895/bb/20201013120848.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"thumb_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://zeitings-live.s3.amazonaws.com/stills/1895/thumb/20201013120848.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ai_threshold"</span><span class="p">:</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ai_relevant_objects"</span><span class="p">:</span><span class="w"> </span><span class="s2">"{'person': True, 'car': True, 'truck': True}"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h1 id='api-v4-devices-uuid-stills-latest'>/api/v4/devices/:UUID/stills/latest</h1>
+<p>This GET endpoint returns the latest still as an image.</p>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>   curl <span class="s2">"http://localhost:3000/api/v4/devices/:UUID/stills/latest"</span>
+</code></pre></div><div class="highlight"><pre class="highlight json tab-json"><code><span class="w">   </span><span class="err">No</span><span class="w"> </span><span class="err">JSON</span><span class="w"> </span><span class="err">returned</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">endpoint,</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">image</span><span class="w">
+</span></code></pre></div><h1 id='errors'>Errors</h1>
+<p>The API uses the following error codes:</p>
 
 <table><thead>
 <tr>
